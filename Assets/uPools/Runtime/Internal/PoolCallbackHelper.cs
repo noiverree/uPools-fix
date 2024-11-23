@@ -10,7 +10,9 @@ namespace uPools
         public static void InvokeOnRent(GameObject obj)
         {
             obj.GetComponentsInChildren(componentsBuffer);
-            foreach (var receiver in componentsBuffer)
+            var componentsToInvoke = new List<IPoolCallbackReceiver>(componentsBuffer);
+
+            foreach (var receiver in componentsToInvoke)
             {
                 receiver.OnRent();
             }
@@ -19,10 +21,11 @@ namespace uPools
         public static void InvokeOnReturn(GameObject obj)
         {
             obj.GetComponentsInChildren(componentsBuffer);
-            foreach (var receiver in componentsBuffer)
+            var componentsToInvoke = new List<IPoolCallbackReceiver>(componentsBuffer);
+
+            foreach (var receiver in componentsToInvoke)
             {
                 receiver.OnReturn();
             }
         }
-    }
 }
