@@ -28,4 +28,5 @@ namespace uPools
                 receiver.OnReturn();
             }
         }
+    }
 }
